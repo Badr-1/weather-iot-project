@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "875759338498",
+    "firebase_url": "https://weather-app-ec620-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "weather-app-ec620",
+    "storage_bucket": "weather-app-ec620.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:875759338498:android:638b1f07dcf46fc6ba131b",
+        "android_client_info": {
+          "package_name": "com.iot.weather"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "875759338498-htl7t5tdlvmpu0qi0hfnlb348h8m4g3j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAyf0U_b5Pc9N-NfDqzVb2BJsX6Sw0HtRc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "875759338498-htl7t5tdlvmpu0qi0hfnlb348h8m4g3j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

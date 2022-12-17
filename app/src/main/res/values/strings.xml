@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">weather</string>
+    <string name="live">Live</string>
+    <string name="detail">Detail</string>
+    <string name="_1">1</string>
+    <string name="pressure">Pressure</string>
+    <string name="humidity">Humidity</string>
+    <string name="temperature">Temperature</string>
+    <string name="altitude">Altitude</string>
+    <string name="last_updated_placeholder">Last updated: Nan</string>
+    <string name="temperature_placeholder">--℃</string>
+    <string name="pressure_placeholder">-- hpa</string>
+    <string name="humidity_placeholder">--</string>
+    <string name="altitude_placeholder">-- m</string>
+</resources>
