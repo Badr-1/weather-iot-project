@@ -7,13 +7,30 @@
     android:background="@drawable/clear_sky_bg"
     tools:context=".MainActivity">
 
+    <ImageView
+        android:id="@+id/settings_button"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="32dp"
+        android:adjustViewBounds="true"
+        android:layout_marginEnd="32dp"
+        android:rotation="90"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/setting"
+        app:tint="@color/white"
+        tools:ignore="ContentDescription" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias=".3">
+
+
+
 
         <ImageView
             android:id="@+id/image_icon"
