@@ -24,3 +24,8 @@ Alert Display when temperature is high
 
 
 ![Alert Display](/Images/alert.png)
+
+
+Settings
+
+![Settings](/Images/settings.png)
