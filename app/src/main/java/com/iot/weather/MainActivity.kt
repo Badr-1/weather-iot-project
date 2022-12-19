@@ -73,7 +73,7 @@ class MainActivity : AppCompatActivity() {
                         }
                     }
                     show = msg != "Everything is OK"
-                    alertDialog.setMessage("The temperature is too high!")
+                    alertDialog.setMessage(msg)
                     alertDialog.setPositiveButton("OK") { dialog, _ ->
                         dialog.dismiss()
                     }
