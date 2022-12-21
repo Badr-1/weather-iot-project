@@ -1,6 +1,7 @@
 @file:Suppress("DEPRECATION")
 
 package com.iot.weather.utils
+
 import android.os.AsyncTask
 import java.util.*
 import javax.mail.*
@@ -8,11 +9,8 @@ import javax.mail.internet.InternetAddress
 import javax.mail.internet.MimeMessage
 
 class MailAPI(
-    private val email: String,
-    private val subject: String,
-    private val message: String
-) :
-    AsyncTask<Void?, Void?, Void?>() {
+    private val email: String, private val subject: String, private val message: String
+) : AsyncTask<Void?, Void?, Void?>() {
 
     companion object {
         const val EMAIL = "rick.sanchez4044@gmail.com"

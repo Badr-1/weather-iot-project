@@ -26,6 +26,7 @@
             android:textColorHint="@color/white"
             app:boxBackgroundMode="outline"
             app:boxStrokeColor="@color/white"
+            app:endIconMode="clear_text"
             app:helperTextEnabled="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -54,6 +55,7 @@
             android:textColorHint="@color/white"
             app:boxBackgroundMode="outline"
             app:boxStrokeColor="@color/white"
+            app:endIconMode="clear_text"
             app:helperTextEnabled="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -82,6 +84,7 @@
             android:textColorHint="@color/white"
             app:boxBackgroundMode="outline"
             app:boxStrokeColor="@color/white"
+            app:endIconMode="clear_text"
             app:helperTextEnabled="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -110,6 +113,7 @@
             android:textColorHint="@color/white"
             app:boxBackgroundMode="outline"
             app:boxStrokeColor="@color/white"
+            app:endIconMode="clear_text"
             app:helperTextEnabled="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -128,7 +132,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/latitude_thresh_layout"
+            android:id="@+id/altitude_thresh_layout"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -138,6 +142,7 @@
             android:textColorHint="@color/white"
             app:boxBackgroundMode="outline"
             app:boxStrokeColor="@color/white"
+            app:endIconMode="clear_text"
             app:helperTextEnabled="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -165,7 +170,7 @@
             app:backgroundTint="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/latitude_thresh_layout" />
+            app:layout_constraintTop_toBottomOf="@id/altitude_thresh_layout" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

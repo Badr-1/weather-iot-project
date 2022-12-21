@@ -43,7 +43,7 @@ dependencies {
     implementation 'com.google.android.material:material:1.7.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'androidx.gridlayout:gridlayout:1.0.0'
-    implementation 'com.google.firebase:firebase-database-ktx:20.0.4'
+    implementation 'com.google.firebase:firebase-database-ktx:20.1.0'
     implementation files('libs/activation.jar')
     implementation files('libs/mail.jar')
     implementation files('libs/additionnal.jar')

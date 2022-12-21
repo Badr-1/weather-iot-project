@@ -13,7 +13,6 @@ import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import com.iot.weather.databinding.ActivityMainBinding
-import com.iot.weather.utils.MailAPI
 import com.iot.weather.utils.UserSettings
 import java.util.*
 
@@ -45,7 +44,7 @@ class MainActivity : AppCompatActivity() {
         readFromDatabase()
 
         binding.settingsButton.setOnClickListener {
-            val settingsDialog = SettingsDialog()
+            val settingsDialog = SettingsDialog.newInstance(userSettings)
             settingsDialog.show(supportFragmentManager, "SettingsDialog")
         }
     }
@@ -94,14 +93,14 @@ class MainActivity : AppCompatActivity() {
                         }
                     }
                     show = msg != "Everything is OK"
-                    val mail = """
-                            $msg
-                            
-                            Temperature: $temperature ℃
-                            Humidity: $humidity
-                            Pressure: $pressure hPa
-                            Altitude: $altitude m
-                        """.trimIndent()
+                    /* val mail = """
+                             $msg
+
+                             Temperature: $temperature ℃
+                             Humidity: $humidity
+                             Pressure: $pressure hPa
+                             Altitude: $altitude m
+                         """.trimIndent()*/
                     alertDialog.setMessage(msg)
                     alertDialog.setPositiveButton("OK") { dialog, _ ->
                         dialog.dismiss()
@@ -112,9 +111,9 @@ class MainActivity : AppCompatActivity() {
                     // show alert dialog
                     if (show) {
                         alertDialog.show()
-                        val mailAPI =
+                        /*val mailAPI =
                             MailAPI(userSettings.email, "Weather IOT App", mail)
-                        mailAPI.execute()
+                        mailAPI.execute()*/
                     }
                 }
 
@@ -133,9 +132,7 @@ class MainActivity : AppCompatActivity() {
 
         if (sharedPreferences.contains("E-mail") && sharedPreferences.contains("Temperature") && sharedPreferences.contains(
                 "Pressure"
-            ) && sharedPreferences.contains(
-                "Humidity"
-            ) && sharedPreferences.contains("Altitude")
+            ) && sharedPreferences.contains("Humidity") && sharedPreferences.contains("Altitude")
         ) {
             userSettings = UserSettings(
                 sharedPreferences.getString("E-mail", "").toString(),
