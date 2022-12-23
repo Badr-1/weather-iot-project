@@ -39,6 +39,7 @@ class LogViewModel : ViewModel() {
                         val humidity = reading[4].toDouble()
                         readingsLog.add(Reading(timestamp = timestamp, altitude = altitude, pressure = pressure, temperature = temperature, humidity = humidity))
                     }
+                    readingsLog.sortWith(compareByDescending { it.timestamp })
                     _log.value = readingsLog
                     _status.value = ReadingLogStatus.DONE
                 }
