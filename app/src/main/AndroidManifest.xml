@@ -15,15 +15,6 @@
         android:theme="@style/Theme.Weather"
         tools:targetApi="31" >
         <activity
-            android:name=".LogActivity"
-            android:exported="false"
-            android:label="@string/title_activity_log"
-            android:theme="@style/Theme.Weather.NoActionBar" >
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
             android:name=".MainActivity"
             android:exported="true" >
             <intent-filter>

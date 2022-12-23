@@ -3,7 +3,6 @@
 package com.iot.weather
 
 import android.annotation.SuppressLint
-import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Build
 import android.os.Bundle
@@ -57,11 +56,10 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.logButton.setOnClickListener {
-            val intent = Intent(this, LogActivity::class.java)
-            startActivity(intent)
+            val logDialog = LogDialog()
+            logDialog.show(supportFragmentManager, "LogDialog")
         }
     }
-
 
 
     private fun getUserSettings() {
