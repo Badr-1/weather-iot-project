@@ -12,11 +12,7 @@ class ReadingAdapter(private val context: Context) : ListAdapter<Reading, Readin
 
     class ReadingViewHolder private constructor(private var binding: ReadingItemBinding, private val context: Context) : RecyclerView.ViewHolder(binding.root) {
         fun bind(reading: Reading) {
-            binding.readingTime.text = reading.timestamp
-            binding.readingTemperature.text = String.format(context.getString(R.string.temperature_format), reading.temperature)
-            binding.readingHumidity.text = String.format(context.getString(R.string.humidity_format), reading.humidity)
-            binding.readingPressure.text = String.format(context.getString(R.string.pressure_format), reading.pressure)
-            binding.readingAltitude.text = String.format(context.getString(R.string.altitude_format), reading.altitude)
+            binding.reading = reading
             binding.executePendingBindings()
         }
 
