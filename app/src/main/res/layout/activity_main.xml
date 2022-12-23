@@ -1,392 +1,393 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/clear_sky_bg"
-    tools:context=".MainActivity">
+<layout>
 
-    <ImageView
-        android:id="@+id/settings_button"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="32dp"
-        android:adjustViewBounds="true"
-        android:layout_marginEnd="32dp"
-        android:rotation="90"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/setting"
-        app:tint="@color/white"
-        tools:ignore="ContentDescription" />
-
-    <ImageView
-        android:id="@+id/log_button"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="32dp"
-        android:adjustViewBounds="true"
-        android:rotation="90"
-        app:layout_constraintBottom_toBottomOf="@+id/settings_button"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/settings_button"
-        app:srcCompat="@drawable/ic_baseline_calendar_view_month_24"
-        app:tint="@color/white"
-        tools:ignore="ContentDescription" />
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/container"
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias=".3">
-
-
-
+        android:layout_height="match_parent"
+        android:background="@drawable/clear_sky_bg"
+        tools:context=".MainActivity">
 
         <ImageView
-            android:id="@+id/image_icon"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_marginTop="48dp"
+            android:id="@+id/settings_button"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="32dp"
             android:adjustViewBounds="true"
-            android:scaleType="centerCrop"
+            android:rotation="90"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_cloud"
+            app:srcCompat="@drawable/setting"
+            app:tint="@color/white"
             tools:ignore="ContentDescription" />
 
-        <TextView
-            android:id="@+id/text_temperature_large"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="@string/temperature_placeholder"
-            android:textAlignment="center"
-            android:textColor="@android:color/white"
-            android:textSize="64sp"
-            app:layout_constraintEnd_toEndOf="parent"
+        <ImageView
+            android:id="@+id/log_button"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="32dp"
+            android:adjustViewBounds="true"
+            android:rotation="90"
+            app:layout_constraintBottom_toBottomOf="@+id/settings_button"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/image_icon" />
+            app:layout_constraintTop_toTopOf="@+id/settings_button"
+            app:srcCompat="@drawable/ic_baseline_calendar_view_month_24"
+            app:tint="@color/white"
+            tools:ignore="ContentDescription" />
 
-
-        <TextView
-            android:id="@+id/text_last_update"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="@string/last_updated_placeholder"
-            android:textAlignment="center"
-            android:textColor="@android:color/white"
-            android:textSize="16sp"
-            android:textStyle="italic"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_temperature_large"
-            app:layout_goneMarginBottom="48dp" />
-
-
-        <androidx.gridlayout.widget.GridLayout
-            android:id="@+id/grid_layout"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/container"
             android:layout_width="match_parent"
-            android:layout_height="300dp"
-            app:alignmentMode="alignBounds"
-            app:columnCount="3"
+            android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/text_last_update"
-            app:rowCount="3">
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias=".3">
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/card_pressure"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                app:cardBackgroundColor="@color/colorCardBackground"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="0dp"
-                app:cardPreventCornerOverlap="true"
-                app:cardUseCompatPadding="true"
-                app:layout_column="0"
-                app:layout_columnWeight="1"
+
+            <ImageView
+                android:id="@+id/image_icon"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="48dp"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/text_last_update"
-                app:layout_row="0"
-                app:layout_rowWeight="1">
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_cloud"
+                tools:ignore="ContentDescription" />
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/pressure_layout"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:padding="8dp"
-                    android:text="1"
-                    android:textColor="@android:color/white"
-                    android:textSize="20sp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/text_last_update">
-
-                    <ImageView
-                        android:id="@+id/pressure_img"
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginBottom="16dp"
-                        android:contentDescription="@string/pressure"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/ic_pressure" />
-
-
-                    <TextView
-                        android:id="@+id/pressure_label"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="16dp"
-                        android:text="@string/pressure"
-                        android:textAlignment="center"
-                        android:textColor="@android:color/white"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/pressure_img" />
-
-                    <TextView
-                        android:id="@+id/text_pressure"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="8dp"
-                        android:ellipsize="end"
-                        android:maxLines="1"
-                        android:text="@string/pressure_placeholder"
-                        android:textAlignment="center"
-                        android:textColor="@android:color/white"
-                        android:textSize="16sp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/pressure_label" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/card_humidity"
+            <TextView
+                android:id="@+id/text_temperature_large"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                app:cardBackgroundColor="@color/colorCardBackground"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="0dp"
-                app:cardPreventCornerOverlap="true"
-                app:cardUseCompatPadding="true"
-                app:layout_column="2"
-                app:layout_columnWeight="1"
+                android:gravity="center"
+                android:text="@string/temperature_placeholder"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="64sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/card_pressure"
-                app:layout_row="0"
-                app:layout_rowWeight="1">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/humidity_layout"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:padding="8dp"
-                    android:text="1"
-                    android:textColor="@android:color/white"
-                    android:textSize="20sp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/text_last_update">
-
-                    <ImageView
-                        android:id="@+id/humidity_img"
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginBottom="16dp"
-                        android:contentDescription="@string/humidity"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/ic_humidity" />
-
-                    <TextView
-                        android:id="@+id/humidity_label"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="16dp"
-                        android:text="@string/humidity"
-                        android:textAlignment="center"
-                        android:textColor="@android:color/white"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/humidity_img" />
-
-                    <TextView
-                        android:id="@+id/text_humidity"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="8dp"
-                        android:ellipsize="end"
-                        android:maxLines="1"
-                        android:text="@string/humidity_placeholder"
-                        android:textAlignment="center"
-                        android:textColor="@android:color/white"
-                        android:textSize="16sp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/humidity_label" />
+                app:layout_constraintTop_toBottomOf="@+id/image_icon" />
 
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/card_temperature"
+            <TextView
+                android:id="@+id/text_last_update"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                app:cardBackgroundColor="@color/colorCardBackground"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="0dp"
-                app:cardPreventCornerOverlap="true"
-                app:cardUseCompatPadding="true"
-                app:layout_column="0"
-                app:layout_columnWeight="1"
+                android:layout_marginTop="8dp"
+                android:text="@string/last_updated_placeholder"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:textStyle="italic"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/card_humidity"
-                app:layout_row="2"
-                app:layout_rowWeight="1">
+                app:layout_constraintTop_toBottomOf="@+id/text_temperature_large"
+                app:layout_goneMarginBottom="48dp" />
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/temperature_layout"
-                    android:layout_width="match_parent"
+
+            <androidx.gridlayout.widget.GridLayout
+                android:id="@+id/grid_layout"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                app:alignmentMode="alignBounds"
+                app:columnCount="3"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text_last_update"
+                app:rowCount="3">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/card_pressure"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:padding="8dp"
-
-                    android:text="1"
-                    android:textColor="@android:color/white"
-                    android:textSize="20sp"
+                    app:cardBackgroundColor="@color/colorCardBackground"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="0dp"
+                    app:cardPreventCornerOverlap="true"
+                    app:cardUseCompatPadding="true"
+                    app:layout_column="0"
+                    app:layout_columnWeight="1"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/humidity_layout">
+                    app:layout_constraintTop_toBottomOf="@+id/text_last_update"
+                    app:layout_row="0"
+                    app:layout_rowWeight="1">
 
-                    <ImageView
-                        android:id="@+id/temperature_img"
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginBottom="16dp"
-                        android:contentDescription="@string/temperature"
-                        android:tint="@color/white"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/ic_temperature" />
-
-                    <TextView
-                        android:id="@+id/text_temperature"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="8dp"
-                        android:ellipsize="end"
-                        android:maxLines="1"
-                        android:text="@string/temperature_placeholder"
-                        android:textAlignment="center"
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/pressure_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="8dp"
+                        android:text="1"
                         android:textColor="@android:color/white"
-                        android:textSize="16sp"
-                        app:layout_constraintEnd_toEndOf="parent"
+                        android:textSize="20sp"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/temperature_label" />
+                        app:layout_constraintTop_toBottomOf="@id/text_last_update">
 
-                    <TextView
-                        android:id="@+id/temperature_label"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="16dp"
-                        android:text="@string/temperature"
-                        android:textAlignment="center"
-                        android:textColor="@android:color/white"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/temperature_img" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
-            </androidx.cardview.widget.CardView>
+                        <ImageView
+                            android:id="@+id/pressure_img"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginBottom="16dp"
+                            android:contentDescription="@string/pressure"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/ic_pressure" />
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/card_latitude"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                app:cardBackgroundColor="@color/colorCardBackground"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="0dp"
-                app:cardPreventCornerOverlap="true"
-                app:cardUseCompatPadding="true"
-                app:layout_column="2"
-                app:layout_columnWeight="1"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/card_temperature"
-                app:layout_row="2"
-                app:layout_rowWeight="1">
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/altitude_layout"
-                    android:layout_width="match_parent"
+                        <TextView
+                            android:id="@+id/pressure_label"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="16dp"
+                            android:text="@string/pressure"
+                            android:textAlignment="center"
+                            android:textColor="@android:color/white"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/pressure_img" />
+
+                        <TextView
+                            android:id="@+id/text_pressure"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="8dp"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:text="@string/pressure_placeholder"
+                            android:textAlignment="center"
+                            android:textColor="@android:color/white"
+                            android:textSize="16sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/pressure_label" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/card_humidity"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:padding="8dp"
-                    android:text="1"
-                    android:textColor="@android:color/white"
-                    android:textSize="20sp"
+                    app:cardBackgroundColor="@color/colorCardBackground"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="0dp"
+                    app:cardPreventCornerOverlap="true"
+                    app:cardUseCompatPadding="true"
+                    app:layout_column="2"
+                    app:layout_columnWeight="1"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/temperature_layout">
+                    app:layout_constraintTop_toBottomOf="@+id/card_pressure"
+                    app:layout_row="0"
+                    app:layout_rowWeight="1">
 
-                    <ImageView
-                        android:id="@+id/altitude_img"
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginBottom="16dp"
-                        android:contentDescription="@string/altitude"
-                        android:tint="@color/white"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/ic_altitude" />
-
-                    <TextView
-                        android:id="@+id/text_altitude"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="8dp"
-                        android:ellipsize="end"
-                        android:maxLines="1"
-                        android:text="@string/altitude_placeholder"
-                        android:textAlignment="center"
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/humidity_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="8dp"
+                        android:text="1"
                         android:textColor="@android:color/white"
-                        android:textSize="16sp"
-                        app:layout_constraintEnd_toEndOf="parent"
+                        android:textSize="20sp"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/altitude_label" />
+                        app:layout_constraintTop_toBottomOf="@id/text_last_update">
 
-                    <TextView
-                        android:id="@+id/altitude_label"
-                        android:layout_width="0dp"
+                        <ImageView
+                            android:id="@+id/humidity_img"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginBottom="16dp"
+                            android:contentDescription="@string/humidity"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/ic_humidity" />
+
+                        <TextView
+                            android:id="@+id/humidity_label"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="16dp"
+                            android:text="@string/humidity"
+                            android:textAlignment="center"
+                            android:textColor="@android:color/white"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/humidity_img" />
+
+                        <TextView
+                            android:id="@+id/text_humidity"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="8dp"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:text="@string/humidity_placeholder"
+                            android:textAlignment="center"
+                            android:textColor="@android:color/white"
+                            android:textSize="16sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/humidity_label" />
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/card_temperature"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:cardBackgroundColor="@color/colorCardBackground"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="0dp"
+                    app:cardPreventCornerOverlap="true"
+                    app:cardUseCompatPadding="true"
+                    app:layout_column="0"
+                    app:layout_columnWeight="1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/card_humidity"
+                    app:layout_row="2"
+                    app:layout_rowWeight="1">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/temperature_layout"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="16dp"
-                        android:text="@string/altitude"
-                        android:textAlignment="center"
-                        android:textColor="@android:color/white"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/altitude_img" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
-            </androidx.cardview.widget.CardView>
+                        android:padding="8dp"
 
-        </androidx.gridlayout.widget.GridLayout>
+                        android:text="1"
+                        android:textColor="@android:color/white"
+                        android:textSize="20sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/humidity_layout">
+
+                        <ImageView
+                            android:id="@+id/temperature_img"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginBottom="16dp"
+                            android:contentDescription="@string/temperature"
+                            android:tint="@color/white"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/ic_temperature" />
+
+                        <TextView
+                            android:id="@+id/text_temperature"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="8dp"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:text="@string/temperature_placeholder"
+                            android:textAlignment="center"
+                            android:textColor="@android:color/white"
+                            android:textSize="16sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/temperature_label" />
+
+                        <TextView
+                            android:id="@+id/temperature_label"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="16dp"
+                            android:text="@string/temperature"
+                            android:textAlignment="center"
+                            android:textColor="@android:color/white"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/temperature_img" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/card_latitude"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:cardBackgroundColor="@color/colorCardBackground"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="0dp"
+                    app:cardPreventCornerOverlap="true"
+                    app:cardUseCompatPadding="true"
+                    app:layout_column="2"
+                    app:layout_columnWeight="1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/card_temperature"
+                    app:layout_row="2"
+                    app:layout_rowWeight="1">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/altitude_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="8dp"
+                        android:text="1"
+                        android:textColor="@android:color/white"
+                        android:textSize="20sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/temperature_layout">
+
+                        <ImageView
+                            android:id="@+id/altitude_img"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginBottom="16dp"
+                            android:contentDescription="@string/altitude"
+                            android:tint="@color/white"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/ic_altitude" />
+
+                        <TextView
+                            android:id="@+id/text_altitude"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="8dp"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:text="@string/altitude_placeholder"
+                            android:textAlignment="center"
+                            android:textColor="@android:color/white"
+                            android:textSize="16sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/altitude_label" />
+
+                        <TextView
+                            android:id="@+id/altitude_label"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="16dp"
+                            android:text="@string/altitude"
+                            android:textAlignment="center"
+                            android:textColor="@android:color/white"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/altitude_img" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+
+            </androidx.gridlayout.widget.GridLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

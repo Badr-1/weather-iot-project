@@ -1,33 +1,28 @@
 package com.iot.weather
 
 import android.os.Bundle
-import android.widget.TableLayout
-import android.widget.TableRow
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import com.iot.weather.databinding.ActivityLogBinding
-import java.io.File
+
 
 class LogActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLogBinding
+    private val viewModel: LogViewModel by lazy {
+        ViewModelProvider(this)[LogViewModel::class.java]
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        // read from bundle
         binding = ActivityLogBinding.inflate(layoutInflater)
+
+        binding.lifecycleOwner = this
+        viewModel.loadData()
+        binding.viewModel = viewModel
+        binding.readingRecycler.adapter = ReadingAdapter(this)
         setContentView(binding.root)
 
-
-        //take log from file log.txt
-        val logFile = File(applicationContext?.filesDir, "log.txt")
-        val log = logFile.readText()
-
-        //split log by lines
-        val logLines = log.split("\r ")
-
-        // put each record in single line
-        binding.logTv.text = log
     }
-
 }

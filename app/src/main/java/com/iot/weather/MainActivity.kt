@@ -10,7 +10,6 @@ import android.os.Bundle
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.gms.common.ErrorDialogFragment.newInstance
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -20,7 +19,6 @@ import com.google.firebase.ktx.Firebase
 import com.iot.weather.SettingsDialog.Companion.newInstance
 import com.iot.weather.databinding.ActivityMainBinding
 import com.iot.weather.utils.UserSettings
-import java.io.File
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -30,7 +28,6 @@ private const val HIGH_HUMIDITY = 80.0
 private const val HIGH_PRESSURE = 1000.0
 private const val HIGH_ALTITUDE = 1000.0
 private const val PATH = "status"
-private const val LOG_PATH = "log"
 private const val TEMPERATURE = "temperature"
 private const val PRESSURE = "pressure"
 private const val HUMIDITY = "humidity"
@@ -52,7 +49,7 @@ class MainActivity : AppCompatActivity() {
 
         readFromDatabase()
 
-        logFile()
+
 
         binding.settingsButton.setOnClickListener {
             val settingsDialog = newInstance(userSettings)
@@ -64,6 +61,8 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
+
+
 
     private fun getUserSettings() {
         supportFragmentManager.setFragmentResultListener("userSettings", this) { _, bundle ->
@@ -152,35 +151,9 @@ class MainActivity : AppCompatActivity() {
         myRef.addValueEventListener(postListener)
     }
 
-    private fun logFile(){
-        val database = Firebase.database.reference
-        val logRef = database.child(LOG_PATH)
-
-        val logListener = object : ValueEventListener {
-            override fun onDataChange(dataSnapshot: DataSnapshot) {
-                val post = dataSnapshot.value as Map<*, *>
-                val file = File(filesDir, "log.txt")
-                //clear file if it exists
-                if (file.exists()) {
-                    file.delete()
-                }
-                file.createNewFile()
-                for (entry in post.entries) {
-                    file.appendText(entry.value.toString() + "\n")
-                }
-            }
-
-            override fun onCancelled(databaseError: DatabaseError) {
-                // Getting Post failed, log a message
-            }
-        }
-        logRef.addValueEventListener(logListener)
-    }
-
 
     private fun loadSettings() {
-        sharedPreferences =
-            applicationContext.getSharedPreferences("sharedPreferences", MODE_PRIVATE)
+        sharedPreferences = applicationContext.getSharedPreferences("sharedPreferences", MODE_PRIVATE)
 
         if (sharedPreferences.contains("E-mail") && sharedPreferences.contains("Temperature") && sharedPreferences.contains(
                 "Pressure"
@@ -195,11 +168,7 @@ class MainActivity : AppCompatActivity() {
             )
         } else {
             userSettings = UserSettings(
-                "rick.sanchez4044@gmail.com",
-                HIGH_PRESSURE,
-                HIGH_TEMPERATURE,
-                HIGH_HUMIDITY,
-                HIGH_ALTITUDE
+                "rick.sanchez4044@gmail.com", HIGH_PRESSURE, HIGH_TEMPERATURE, HIGH_HUMIDITY, HIGH_ALTITUDE
             )
         }
     }
