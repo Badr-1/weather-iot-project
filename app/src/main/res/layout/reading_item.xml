@@ -14,7 +14,7 @@
         android:id="@+id/cardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
+        android:layout_marginBottom="8dp"
         android:clickable="true"
         android:focusable="true"
         app:cardBackgroundColor="@color/colorCardBackground"
@@ -26,7 +26,8 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="8dp">
+            android:padding="8dp"
+            tools:background="@drawable/clear_sky_bg">
 
             <TextView
                 android:id="@+id/reading_time"

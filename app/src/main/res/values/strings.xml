@@ -112,10 +112,10 @@
         "when a user tries to pick up one of cards.\n\n"
     </string>
     <string name="action_settings">Settings</string>
-    <string name="temperature_format">Temperature: %f ℃</string>
-    <string name="altitude_format">Altitude: %f m</string>
-    <string name="pressure_format">Pressure: %f Pa</string>
-    <string name="humidity_format">Humidity: %f</string>
+    <string name="temperature_format">Temperature: %.2f ℃</string>
+    <string name="altitude_format">Altitude: %.2f m</string>
+    <string name="pressure_format">Pressure: %.2f Pa</string>
+    <string name="humidity_format">Humidity: %.2f</string>
 
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>

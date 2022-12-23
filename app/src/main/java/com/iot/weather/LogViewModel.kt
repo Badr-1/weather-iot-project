@@ -8,6 +8,8 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
+import java.text.SimpleDateFormat
+import java.util.*
 
 private const val LOG_PATH = "log"
 
@@ -37,7 +39,13 @@ class LogViewModel : ViewModel() {
                         val pressure = reading[2].toDouble()
                         val temperature = reading[3].toDouble()
                         val humidity = reading[4].toDouble()
-                        readingsLog.add(Reading(timestamp = timestamp, altitude = altitude, pressure = pressure, temperature = temperature, humidity = humidity))
+                        val changeFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault())
+                        val date = changeFormat.parse(timestamp)
+                        val calendar = Calendar.getInstance()
+                        calendar.time = date!!
+                        calendar.add(Calendar.HOUR, 2)
+                        val newDate = calendar.time
+                        readingsLog.add(Reading(timestamp = newDate.toString(), altitude = altitude, pressure = pressure, temperature = temperature, humidity = humidity))
                     }
                     readingsLog.sortWith(compareByDescending { it.timestamp })
                     _log.value = readingsLog
