@@ -1,6 +1,5 @@
 package com.iot.weather
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -8,19 +7,19 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.iot.weather.databinding.ReadingItemBinding
 
-class ReadingAdapter(private val context: Context) : ListAdapter<Reading, ReadingAdapter.ReadingViewHolder>(DiffCallback) {
+class ReadingAdapter : ListAdapter<Reading, ReadingAdapter.ReadingViewHolder>(DiffCallback) {
 
-    class ReadingViewHolder private constructor(private var binding: ReadingItemBinding, private val context: Context) : RecyclerView.ViewHolder(binding.root) {
+    class ReadingViewHolder private constructor(private var binding: ReadingItemBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(reading: Reading) {
             binding.reading = reading
             binding.executePendingBindings()
         }
 
         companion object {
-            fun from(parent: ViewGroup, context: Context): ReadingViewHolder {
+            fun from(parent: ViewGroup): ReadingViewHolder {
                 val layoutInflater = LayoutInflater.from(parent.context)
                 val binding = ReadingItemBinding.inflate(layoutInflater, parent, false)
-                return ReadingViewHolder(binding, context)
+                return ReadingViewHolder(binding)
             }
         }
     }
@@ -38,7 +37,7 @@ class ReadingAdapter(private val context: Context) : ListAdapter<Reading, Readin
     override fun onCreateViewHolder(
         parent: ViewGroup, viewType: Int
     ): ReadingViewHolder {
-        return ReadingViewHolder.from(parent, context)
+        return ReadingViewHolder.from(parent)
     }
 
     override fun onBindViewHolder(holder: ReadingViewHolder, position: Int) {

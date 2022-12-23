@@ -21,7 +21,7 @@ class LogActivity : AppCompatActivity() {
         binding.lifecycleOwner = this
         viewModel.loadData()
         binding.viewModel = viewModel
-        binding.readingRecycler.adapter = ReadingAdapter(this)
+        binding.readingRecycler.adapter = ReadingAdapter()
         setContentView(binding.root)
 
     }
