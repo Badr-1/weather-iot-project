@@ -2,18 +2,26 @@
 
 package com.iot.weather
 
+import android.annotation.SuppressLint
+import android.content.Intent
 import android.content.SharedPreferences
+import android.os.Build
 import android.os.Bundle
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.gms.common.ErrorDialogFragment.newInstance
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
+import com.iot.weather.SettingsDialog.Companion.newInstance
 import com.iot.weather.databinding.ActivityMainBinding
 import com.iot.weather.utils.UserSettings
+import java.io.File
+import java.text.SimpleDateFormat
 import java.util.*
 
 
@@ -22,6 +30,7 @@ private const val HIGH_HUMIDITY = 80.0
 private const val HIGH_PRESSURE = 1000.0
 private const val HIGH_ALTITUDE = 1000.0
 private const val PATH = "status"
+private const val LOG_PATH = "log"
 private const val TEMPERATURE = "temperature"
 private const val PRESSURE = "pressure"
 private const val HUMIDITY = "humidity"
@@ -43,9 +52,16 @@ class MainActivity : AppCompatActivity() {
 
         readFromDatabase()
 
+        logFile()
+
         binding.settingsButton.setOnClickListener {
-            val settingsDialog = SettingsDialog.newInstance(userSettings)
+            val settingsDialog = newInstance(userSettings)
             settingsDialog.show(supportFragmentManager, "SettingsDialog")
+        }
+
+        binding.logButton.setOnClickListener {
+            val intent = Intent(this, LogActivity::class.java)
+            startActivity(intent)
         }
     }
 
@@ -61,17 +77,24 @@ class MainActivity : AppCompatActivity() {
         val database = Firebase.database.reference
         val myRef = database.child(PATH)
         val postListener = object : ValueEventListener {
+            @SuppressLint("SimpleDateFormat")
+            @RequiresApi(Build.VERSION_CODES.O)
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 // Get Post object and use the values to update the UI
                 val post = dataSnapshot.value as Map<*, *>
-                if (post.entries.size == 4) {
-                    // get current time
-                    val currentTime = Date(System.currentTimeMillis())
-                    "Last update: $currentTime".also { binding.textLastUpdate.text = it }
+                if (post.entries.size == 5) {
+                    val recordTime = post["datetime"]
+                    val changeFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
+                    val date = changeFormat.parse(recordTime.toString())
+                    val calendar = Calendar.getInstance()
+                    calendar.time = date!!
+                    calendar.add(Calendar.HOUR, 2)
+                    val newDate = calendar.time
+                    "Last update: $newDate".also { binding.textLastUpdate.text = it }
                     "${post[TEMPERATURE]}\u2103".also { binding.textTemperatureLarge.text = it }
                     "${post[TEMPERATURE]}\u2103".also { binding.textTemperature.text = it }
                     "${post[HUMIDITY]}".also { binding.textHumidity.text = it }
-                    "${post[PRESSURE]} hPa".also { binding.textPressure.text = it }
+                    "${post[PRESSURE]} Pa".also { binding.textPressure.text = it }
                     "${post[ALTITUDE]} m".also { binding.textAltitude.text = it }
 
 
@@ -117,6 +140,9 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
 
+
+                // log
+
             }
 
             override fun onCancelled(databaseError: DatabaseError) {
@@ -125,6 +151,32 @@ class MainActivity : AppCompatActivity() {
         }
         myRef.addValueEventListener(postListener)
     }
+
+    private fun logFile(){
+        val database = Firebase.database.reference
+        val logRef = database.child(LOG_PATH)
+
+        val logListener = object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                val post = dataSnapshot.value as Map<*, *>
+                val file = File(filesDir, "log.txt")
+                //clear file if it exists
+                if (file.exists()) {
+                    file.delete()
+                }
+                file.createNewFile()
+                for (entry in post.entries) {
+                    file.appendText(entry.value.toString() + "\n")
+                }
+            }
+
+            override fun onCancelled(databaseError: DatabaseError) {
+                // Getting Post failed, log a message
+            }
+        }
+        logRef.addValueEventListener(logListener)
+    }
+
 
     private fun loadSettings() {
         sharedPreferences =

@@ -21,6 +21,20 @@
         app:tint="@color/white"
         tools:ignore="ContentDescription" />
 
+    <ImageView
+        android:id="@+id/log_button"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="32dp"
+        android:adjustViewBounds="true"
+        android:rotation="90"
+        app:layout_constraintBottom_toBottomOf="@+id/settings_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/settings_button"
+        app:srcCompat="@drawable/ic_baseline_calendar_view_month_24"
+        app:tint="@color/white"
+        tools:ignore="ContentDescription" />
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/container"
         android:layout_width="match_parent"
