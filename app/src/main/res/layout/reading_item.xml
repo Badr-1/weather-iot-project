@@ -33,7 +33,7 @@
                 android:id="@+id/reading_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{reading.timestamp}"
+                app:timeStampText="@{reading.timestamp}"
                 android:textColor="@color/white"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -52,7 +52,7 @@
 
             <TextView
                 android:id="@+id/reading_pressure"
-                pressureText="@{reading.pressure}"
+                app:pressureText="@{reading.pressure}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"

@@ -6,6 +6,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
+import java.util.*
 
 @BindingAdapter("listData")
 fun bindRecyclerView(recyclerView: RecyclerView, data: List<Reading>?) {
@@ -38,6 +39,12 @@ fun bindTextViewToDisplayHumidity(textView: TextView, number: Double) {
 
 }
 
+@BindingAdapter("timeStampText")
+fun bindTextViewToDisplayTimeStamp(textView: TextView, time: Date) {
+    textView.text = time.toString()
+
+}
+
 @BindingAdapter("readingLogStatus")
 fun bindStatus(progressBar: ProgressBar, status: ReadingLogStatus?) {
     when (status) {
@@ -45,8 +52,7 @@ fun bindStatus(progressBar: ProgressBar, status: ReadingLogStatus?) {
             progressBar.visibility = View.VISIBLE
         }
         ReadingLogStatus.ERROR -> {
-            Toast.makeText(progressBar.context, "Failed To Retrieve The Data", Toast.LENGTH_SHORT)
-                .show()
+            Toast.makeText(progressBar.context, "Failed To Retrieve The Data", Toast.LENGTH_SHORT).show()
         }
 
         else -> progressBar.visibility = View.GONE

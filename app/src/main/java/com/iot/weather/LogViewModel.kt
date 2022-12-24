@@ -45,7 +45,7 @@ class LogViewModel : ViewModel() {
                         calendar.time = date!!
                         calendar.add(Calendar.HOUR, 2)
                         val newDate = calendar.time
-                        readingsLog.add(Reading(timestamp = newDate.toString(), altitude = altitude, pressure = pressure, temperature = temperature, humidity = humidity))
+                        readingsLog.add(Reading(timestamp = newDate, altitude = altitude, pressure = pressure, temperature = temperature, humidity = humidity))
                     }
                     readingsLog.sortWith(compareByDescending { it.timestamp })
                     _log.value = readingsLog
